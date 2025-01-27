@@ -38,7 +38,7 @@ export class User {
     @Column({ nullable: false })
     password: string;
 
-
+    
     /**
      * El arreglo con la información de la orden
      * 

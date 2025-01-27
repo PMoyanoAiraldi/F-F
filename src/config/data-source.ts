@@ -24,6 +24,7 @@ const PostgresDataSource = {
     password: process.env.DB_PASSWORD,
     synchronize: true,
     logging: true,
+    entities: [__dirname + '/../**/*.entity{.ts,.js}'],
 }
 
 export const postgresDataSourceConfig = registerAs('postgres', () => PostgresDataSource)
