@@ -20,7 +20,6 @@ export class UsersService {
         }
 
         const newUser = new User();
-        console.log(newUser);
         Object.assign(newUser, createUserDto);
         console.log('Usuario antes de guardar:', newUser);
 
@@ -36,6 +35,8 @@ export class UsersService {
         }
         throw new HttpException('Error al crear el usuario', 500);
     }
+
+
         
 }
 
