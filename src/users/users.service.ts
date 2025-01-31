@@ -4,6 +4,7 @@ import { User } from './users.entity';
 import { Repository } from 'typeorm';
 import * as bcrypt from 'bcrypt';
 import { CreateUserDto } from './dto/create-user.dto';
+import { ResponseUserDto } from './dto/response-user.dto';
 
 @Injectable()
 export class UsersService {
@@ -34,6 +35,18 @@ export class UsersService {
             throw error; // Re-lanzar excepciones controladas
         }
         throw new HttpException('Error al crear el usuario', 500);
+    }
+
+    async getUsers(): Promise <ResponseUserDto[]>{
+        const users = await this.usuariosRepository.find()
+        
+        return users.map(user => {
+            const userDto = new ResponseUserDto();
+            userDto.name = user.name;
+            userDto.email = user.email;
+            
+            return userDto
+        })
     }
 
 
