@@ -5,6 +5,7 @@ import { Repository } from 'typeorm';
 import * as bcrypt from 'bcrypt';
 import { CreateUserDto } from './dto/create-user.dto';
 import { ResponseUserDto } from './dto/response-user.dto';
+import { LoginUserDto } from './dto/login-user.dto';
 
 @Injectable()
 export class UsersService {
@@ -48,6 +49,10 @@ export class UsersService {
             return userDto
         })
     }
+
+    // async login(loginUserDto: LoginUserDto): Promise <LoginUserDto>{
+
+    // }
 
 
         
